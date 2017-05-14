@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "1093570641798",
+    "firebase_url": "https://oversight-73bc8.firebaseio.com",
+    "project_id": "oversight-73bc8",
+    "storage_bucket": "oversight-73bc8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093570641798:android:f66e86504ff17465",
+        "android_client_info": {
+          "package_name": "dali.oversight"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9eqSDkpqG5nC5LN4ZKLDiXPQ9fFcdYr0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093570641798:android:18e82aa168e41189",
+        "android_client_info": {
+          "package_name": "dali.traka"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9eqSDkpqG5nC5LN4ZKLDiXPQ9fFcdYr0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context="dali.oversight.activity.CallArchieve.HistoriqueActivity">
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout_show_audio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+
+        android:layout_below="@+id/id_rc_call"
+        android:layout_toEndOf="@+id/id_rc_call">
+
+        <include
+            android:id="@+id/toolbar_hist_call"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/id_rc_call"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/id_ll_chargement"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_show_audio"
+
+            android:layout_toEndOf="@+id/id_rc_call"
+            android:text="Wait please ..."
+            android:textColor="@android:color/background_dark" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_alignStart="@+id/textView"
+            android:layout_below="@+id/textView"
+
+            />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/id_rc_call"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        />
+</LinearLayout>

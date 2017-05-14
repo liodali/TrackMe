@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.trackers.ListTrackersActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar_list_traka_friend"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/id_rc_call" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/id_ll_chargement_list_traka"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/id_txt_wait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_show_audio"
+
+            android:layout_toEndOf="@+id/id_rc_call"
+            android:text="Wait please ..."
+            android:textColor="@android:color/background_dark" />
+
+        <ProgressBar
+            android:id="@+id/id_progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView"
+            android:layout_below="@+id/textView"
+            android:indeterminate="true"
+
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/id_rl_rc_bt_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/id_list_friend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/id_next_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ripple_custom_3"
+        android:textColor="@android:color/white"
+        android:clickable="false"
+        android:onClick="BeginTraka"
+        android:enabled="false"
+        android:text="Next" />
+    </RelativeLayout>
+</LinearLayout>

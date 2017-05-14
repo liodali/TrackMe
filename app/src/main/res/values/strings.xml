@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TrackMe</string>
+    <string name="email_error_1">Email is Empty</string>
+    <string name="pwd_error_1">Password is Empty</string>
+    <string name="email_error_2">Email invalid</string>
+    <string name="pwd_error_2">Minimum Password :6 caractere</string>
+    <string name="facebook_app_id">174903339700277</string>
+    <string name="Map_app_id">AIzaSyD3SC0vIiPnzyJefpeZP8ToWk-P7vx79Tk</string>
+</resources>
