@@ -83,7 +83,7 @@ public class HistoriqueActivity extends AppCompatActivity implements HistoriqueV
     public void setItems(ArrayList<?> list) {
         Log.i("tag4",list.size()+"");
 
-        mAdapter = new CallAdapter((ArrayList<Call>) list);
+        mAdapter = new CallAdapter((ArrayList<Call>) list,this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
