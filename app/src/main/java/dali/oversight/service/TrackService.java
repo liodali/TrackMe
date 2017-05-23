@@ -27,4 +27,9 @@ public class TrackService extends Service {
 
         return super.onStartCommand(intent, flags, startId);
     }
+
+    @Override
+    public void onStart(Intent intent, int startId) {
+        super.onStart(intent, startId);
+    }
 }
