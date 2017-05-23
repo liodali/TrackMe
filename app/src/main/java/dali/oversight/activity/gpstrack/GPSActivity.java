@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -34,7 +33,7 @@ public class GPSActivity extends AppCompatActivity implements
 
     private Toolbar toolbar;
     private TextView name,distance;
-    private Button retrack,cancel;
+
     private GoogleApiClient mGoogleApiClient;
     private Location mLocation,TrackLocation;
     private String Latitude,Longitude;
@@ -58,7 +57,7 @@ public class GPSActivity extends AppCompatActivity implements
         setTitle("Traka gps");
         bar =(ProgressBar)findViewById(R.id.id_pb_wait_gps);
         traka_name=(TextView)findViewById(R.id.id_traka_name_txt);
-        retrack=(Button)findViewById(R.id.id_bt_retrack);
+
         this.f=getIntent().getParcelableExtra("friend");
         traka_name.setText(f.getName());
         presenter=new GPSPresenterImpl(this,this);
@@ -99,7 +98,8 @@ public class GPSActivity extends AppCompatActivity implements
 
 
     public void NotifTraka(View view){
-
+            presenter.NotifMe(f);
+            finish();
     }
 
     @Override
@@ -146,7 +146,7 @@ public class GPSActivity extends AppCompatActivity implements
         this.g=gps;
         TrackLocation=new Location("");
         TrackLocation.setLatitude(Double.valueOf(g.getLatitude()));
-        TrackLocation.setLongitude(Double.valueOf(g.getLatitude()));
+        TrackLocation.setLongitude(Double.valueOf(g.getLongitude()));
         mGoogleMap.animateCamera(CameraUpdateFactory.zoomOut());
         if(TrackLocation!=null){
             LatLng ll=new LatLng(TrackLocation.getLatitude(),TrackLocation.getLongitude());
