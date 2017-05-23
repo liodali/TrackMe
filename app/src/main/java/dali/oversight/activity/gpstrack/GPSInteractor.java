@@ -26,4 +26,5 @@ public interface GPSInteractor {
     }
     void googleServiceAvaible(Context context, OnFinishedListener listener);
     void TrakaPosition(friend f,OnTrakaFinishedListener listener);
+    void ReTrakaPosition(friend f,OnTrakaFinishedListener listener);
 }

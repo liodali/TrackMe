@@ -55,7 +55,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="1">
+            android:weightSum="1"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="8dp">
 
             <TextView
                 android:id="@+id/id_traka_name_txt"
@@ -66,13 +68,26 @@
                 android:text="TextView"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/id_bt_retrack_"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_weight="0.25"
-                android:text="Retrack" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/id_bt_retrack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:onClick="RetrackTraka"
+                    android:text="Retrack" />
+                <Button
+                    android:id="@+id/id_bt_"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:onClick="NotifTraka"
+                    android:text="Notif Me" />
+            </LinearLayout>
         </LinearLayout>
 
         <fragment

@@ -10,7 +10,7 @@ import dali.oversight.data.friend;
 
 public interface GPSPresenter {
 
-    void ReTrack();
+    void ReTrack(friend f);
     void CheckGoogleService(Context context);
     void GetPosTraka(friend f);
 

@@ -22,8 +22,9 @@ public class GPSPresenterImpl implements GPSPresenter,GPSInteractor.OnFinishedLi
     }
 
     @Override
-    public void ReTrack() {
-
+    public void ReTrack(friend f) {
+        view.showProgress();
+        interactor.ReTrakaPosition(f,this);
     }
 
     @Override

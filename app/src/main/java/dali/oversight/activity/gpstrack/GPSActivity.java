@@ -46,6 +46,7 @@ public class GPSActivity extends AppCompatActivity implements
     private friend f;
     private TextView traka_name;
     private GPSPresenterImpl presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +58,7 @@ public class GPSActivity extends AppCompatActivity implements
         setTitle("Traka gps");
         bar =(ProgressBar)findViewById(R.id.id_pb_wait_gps);
         traka_name=(TextView)findViewById(R.id.id_traka_name_txt);
-
+        retrack=(Button)findViewById(R.id.id_bt_retrack);
         this.f=getIntent().getParcelableExtra("friend");
         traka_name.setText(f.getName());
         presenter=new GPSPresenterImpl(this,this);
@@ -89,6 +90,16 @@ public class GPSActivity extends AppCompatActivity implements
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void RetrackTraka(View v){
+        presenter.ReTrack(f);
+    }
+
+
+
+    public void NotifTraka(View view){
+
     }
 
     @Override
