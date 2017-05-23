@@ -60,7 +60,9 @@
         </receiver>
 
         <service android:name=".service.TService" />
-        <service android:name=".service.TrackService" />
+        <service android:name=".service.TrackService"
+            android:enabled="true"
+            android:exported="true"/>
 
         <activity android:name=".activity.call.CallsActivity" />
         <activity android:name=".activity.CallArchieve.HistoriqueActivity" />

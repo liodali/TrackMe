@@ -1,9 +1,11 @@
 package dali.oversight.activity.gpstrack;
 
 import android.content.Context;
+import android.content.Intent;
 
 import dali.oversight.data.Gps;
 import dali.oversight.data.friend;
+import dali.oversight.service.TrackService;
 
 /**
  * Created by Mohamed ali on 11/05/2017.
@@ -25,6 +27,13 @@ public class GPSPresenterImpl implements GPSPresenter,GPSInteractor.OnFinishedLi
     public void ReTrack(friend f) {
         view.showProgress();
         interactor.ReTrakaPosition(f,this);
+    }
+
+    @Override
+    public void NotifMe(friend f) {
+        Intent intent = new Intent(context, TrackService.class);
+        intent.putExtra("friend",f);
+        context.startService(intent);
     }
 
     @Override
