@@ -180,7 +180,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void setLoginSucces() {
-            navigateToHome();
+
+        navigateToHome();
+        finish();
     }
 
     @Override

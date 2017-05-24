@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
 import dali.oversight.R;
@@ -64,8 +65,11 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
     public void setting(View v){
 
     }
-    public void Logout(View v){
+    public void BecomePremium(View v){
 
+    }
+    public void Logout(View v){
+        LoginManager.getInstance().logOut();
         FirebaseAuth.getInstance().signOut();
         Intent intent=new Intent(HomeActivity.this, LoginActivity.class);
         startActivity(intent);
