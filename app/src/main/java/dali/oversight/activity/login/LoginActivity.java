@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         presenter=new LoginPresenterImpl(this,mAuth,LoginActivity.this);
 
 
-        loginFbButton.setReadPermissions("email", "public_profile");
+        loginFbButton.setReadPermissions("email", "public_profile","user_friends");
 
         loginFbButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override

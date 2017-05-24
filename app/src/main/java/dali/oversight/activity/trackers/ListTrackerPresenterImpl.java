@@ -43,6 +43,8 @@ public class ListTrackerPresenterImpl implements ListTrackerPresenter,ListTracke
             trackerView.hideProgress();
         if(!items.isEmpty()){
             trackerView.setItems(items);
+        }else{
+            trackerView.NoFriend();
         }
     }
 

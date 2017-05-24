@@ -28,6 +28,7 @@ public class ListTrackersActivity extends AppCompatActivity implements ListTrack
     private RecyclerView recyclerView;
     private RelativeLayout rl;
     private LinearLayout ll;
+    private LinearLayout ll_friend;
     private Button next;
     private FriendAdapter mAdapter;
     private ListTrackerPresenterImpl presenter;
@@ -44,6 +45,7 @@ public class ListTrackersActivity extends AppCompatActivity implements ListTrack
         setTitle("Choice friend");
         next = (Button) findViewById(R.id.id_next_bt);
         ll = (LinearLayout) findViewById(R.id.id_ll_chargement_list_traka);
+        ll_friend = (LinearLayout) findViewById(R.id.id_ll_zero_amie);
         rl = (RelativeLayout) findViewById(R.id.id_rl_rc_bt_data);
         recyclerView = (RecyclerView) findViewById(R.id.id_list_friend);
         presenter=new ListTrackerPresenterImpl(this);
@@ -121,5 +123,12 @@ public class ListTrackersActivity extends AppCompatActivity implements ListTrack
     @Override
     public void Alertsnackbar() {
 
+    }
+
+    @Override
+    public void NoFriend() {
+        ll_friend.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.GONE);
+        next.setVisibility(View.GONE);
     }
 }

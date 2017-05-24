@@ -13,5 +13,6 @@ public interface ListTrackerView extends HistoriqueView {
     void EnableNext();
     void SetFriend(friend f);
     void Alertsnackbar();
+    void NoFriend();
 
 }

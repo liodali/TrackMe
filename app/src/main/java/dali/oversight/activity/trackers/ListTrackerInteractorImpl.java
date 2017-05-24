@@ -107,11 +107,11 @@ public class ListTrackerInteractorImpl implements ListTrackerInteractor {
 
     }
     private void myNewGraphReq(final OnFinishedListener listener) {
-
+        Log.i("test","test");
         final ArrayList<friend> friendlist=new ArrayList<>();
         GraphRequestAsyncTask request = new GraphRequest(
                 AccessToken.getCurrentAccessToken(),
-                "/me/friends?fields=picture,first_name,id",
+                "/"+AccessToken.getCurrentAccessToken().getUserId()+"/friends?fields=picture,first_name,id",
                 null,
                 HttpMethod.GET,
                 new GraphRequest.Callback() {
@@ -128,6 +128,7 @@ public class ListTrackerInteractorImpl implements ListTrackerInteractor {
                             Log.i("data friends",rawName.toString());
                             if(rawName.length()==0){
                              //   ll.startAnimation(fadeOut);
+                                listener.onFinished(friendlist);
                             }else{
                                 while (response!=null ){
                                     rawName = response.getJSONObject().getJSONArray("data");

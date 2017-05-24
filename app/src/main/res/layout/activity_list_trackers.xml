@@ -53,6 +53,27 @@
 
             />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/id_ll_zero_amie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/id_txt_amie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_show_audio"
+
+            android:layout_toEndOf="@+id/id_rc_call"
+            android:text="Aucun friend !!"
+            android:textColor="@android:color/background_dark" />
+
+
+    </LinearLayout>
     <RelativeLayout
         android:id="@+id/id_rl_rc_bt_data"
         android:layout_width="match_parent"
