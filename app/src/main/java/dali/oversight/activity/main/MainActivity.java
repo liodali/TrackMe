@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         // Check if user is signed in (non-null) .
 
 
-        presenter.ValideUser();
+        presenter.ValideUser(this);
     }
 
 

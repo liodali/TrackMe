@@ -9,6 +9,7 @@ import com.facebook.AccessToken;
 public interface LoginPresenter {
     void validateCredentials(String email, String password);
     void validateCredentialsFacebook(AccessToken token);
+    void validateCredentialsFacebookTraka(AccessToken token);
     void SigupCredentials(String email, String password);
     void onDestroy();
 }

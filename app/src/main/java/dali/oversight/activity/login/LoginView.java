@@ -16,6 +16,7 @@ public interface LoginView extends BaseView{
     void setLoginError(String msg);
 
     void setLoginSucces();
+    void setLoginSuccesTraka();
 
 
 }

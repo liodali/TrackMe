@@ -62,6 +62,27 @@ public class LoginPresenterImpl implements LoginPresenter,LoginInteractor.OnLogi
     }
 
     @Override
+    public void validateCredentialsFacebookTraka(AccessToken token) {
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener((Activity) context, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            loginView.hideProgress();
+                            loginView.setLoginSuccesTraka();
+                        } else {
+                            loginView.hideProgress();
+                            String msg="Authentication failed.";
+                            loginView.setLoginError(msg);
+                        }
+
+                        // ...
+                    }
+                });
+    }
+
+    @Override
     public void SigupCredentials(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener((Activity) context, new OnCompleteListener<AuthResult>() {

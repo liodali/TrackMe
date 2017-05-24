@@ -1,5 +1,7 @@
 package dali.oversight.activity.main;
 
+import android.content.Context;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -19,9 +21,9 @@ public class MainPresenterImpl implements MainPresenter,MainInteractor.OnLoginLi
     }
 
     @Override
-    public void ValideUser( ) {
+    public void ValideUser(Context context) {
         FirebaseUser user=auth.getCurrentUser();
-        interactor.checkUserLogIn(user,this);
+        interactor.checkUserLogIn(context,user,this);
     }
 
     @Override

@@ -62,6 +62,7 @@
         </receiver>
 
         <service android:name=".service.TService" />
+        <service android:name=".service.FirebaseServiceTraka" />
         <service
             android:name=".service.TrackService"
             android:enabled="true"
@@ -83,8 +84,10 @@
 
         <activity android:name=".activity.trackers.ListTrackersActivity" />
         <activity android:name=".activity.gpstrack.GPSActivity" />
-        <activity android:name=".activity.dialog.EmptyActivity"
-            android:theme="@style/AlertDialogCustom"></activity>
+        <activity
+            android:name=".activity.dialog.EmptyActivity"
+            android:theme="@style/AlertDialogCustom" />
+        <activity android:name=".activity.AccountTraka.TrakaActivity"></activity>
     </application>
 
 </manifest>

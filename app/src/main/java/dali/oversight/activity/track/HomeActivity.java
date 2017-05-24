@@ -18,8 +18,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import dali.oversight.R;
 import dali.oversight.activity.CallArchieve.HistoriqueActivity;
+import dali.oversight.activity.login.LoginActivity;
 import dali.oversight.activity.trackers.ListTrackersActivity;
 import dali.oversight.service.TService;
 
@@ -63,6 +66,10 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
     }
     public void Logout(View v){
 
+        FirebaseAuth.getInstance().signOut();
+        Intent intent=new Intent(HomeActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

@@ -12,15 +12,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Arrays;
 
 import dali.oversight.R;
 import dali.oversight.activity.track.HomeActivity;
+import dali.oversight.service.FirebaseServiceTraka;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -33,6 +43,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private  LoginPresenterImpl presenter;
     private CoordinatorLayout coordinatorLayout;
     private CallbackManager callbackManager;
+    private LoginManager fbLoginManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +84,29 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 // ...
             }
         });
+        fbLoginManager = com.facebook.login.LoginManager.getInstance();
+        CallbackManager callbackManager = CallbackManager.Factory.create();
+        fbLoginManager.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // here write code When Login successfully
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                // here write code when get error
+            }
+        });
+    }
+
+
+    public void TrakaAccount(View view){
+        fbLoginManager.logInWithReadPermissions(LoginActivity.this, Arrays.asList("email", "public_profile"));
     }
 
     public void LoginApp(View v){
@@ -148,6 +182,44 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     public void setLoginSucces() {
             navigateToHome();
     }
+
+    @Override
+    public void setLoginSuccesTraka() {
+
+            // FirebaseUser user = mAuth.getCurrentUser();
+            final FirebaseDatabase database = FirebaseDatabase.getInstance();
+            final DatabaseReference mdata = database.getReference().child("traka");
+            final String id = AccessToken.getCurrentAccessToken().getUserId();
+            mdata.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (!dataSnapshot.hasChild(id)) {
+                        DatabaseReference myRef = mdata.child(id);
+                        // myRef.push();
+
+                        myRef.child("gps").setValue(0);
+                        myRef.child("tracker").setValue(0);
+
+
+                    }else{
+                        Intent intent=new Intent(LoginActivity.this, FirebaseServiceTraka.class);
+                        startService(intent);
+
+                    }
+                    finish();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+
+    }
+
 
 
     @Override

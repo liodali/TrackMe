@@ -1,5 +1,7 @@
 package dali.oversight.activity.main;
 
+import android.content.Context;
+
 import com.google.firebase.auth.FirebaseUser;
 
 /**
@@ -16,6 +18,6 @@ public interface MainInteractor {
 
     }
 
-    void checkUserLogIn(FirebaseUser user,OnLoginListener listener);
+    void checkUserLogIn(Context context, FirebaseUser user, OnLoginListener listener);
 
 }

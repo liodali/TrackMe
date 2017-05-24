@@ -1,11 +1,13 @@
 package dali.oversight.activity.main;
 
+import android.content.Context;
+
 /**
  * Created by Mohamed ali on 06/05/2017.
  */
 
 public interface MainPresenter {
 
-    void ValideUser();
+    void ValideUser(Context context);
 
 }
